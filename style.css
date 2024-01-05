@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+body {
+    height: 100vh;
+    background-color: aqua;
+    min-width: 300px;
+}
+
+html {
+    font-size: 16px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* gap: 2px; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 50%;
+    flex-basis: 200px;
+    background-color: blueviolet;
+    margin: 0 auto;
+    min-width: 300;
+}
+
+
+.flex-container button {
+    width: 100px;
+    height: 100px;
+    min-width: 25%;
+}
+
+@media all and (min-width: 815px) {
+    .flex-container button {
+        width: 100px;
+        height: 100px;
+        min-width: 25%;
+        /* flex-grow: 1;
+        flex-shrink: 1; */
+    }
+ }
+
+@media all and (min-width: 620px) and (max-width: 815px) { 
+    .flex-container button {
+        width: 75px;
+        height: 75px;
+        min-width: 25%;
+        /* flex-grow: 1; */
+        flex-shrink: 1;
+    }
+}
+
+@media all and (min-width: 420px) and (max-width: 620px) { 
+    .flex-container button {
+        width: 50px;
+        height: 50px;
+        min-width: 25%;
+        /* flex-grow: 1;
+        flex-shrink: 1; */
+    }
+}
+
+@media all and (max-width: 420px) { 
+    .flex-container button {
+        width: 25px;
+        height: 25px;
+        min-width: 25%;
+        /* flex-grow: 1;
+        flex-shrink: 1; */
+    }
+}
+
+@media all and (max-width: 300px) { 
+    body {
+        resize: none;
+    }
+}
+
