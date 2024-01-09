@@ -60,12 +60,14 @@ function addClickEventToButton() {
     }
 }
 
+// *************************************************
 // variables for tracking progress/state of the game
 var lastEmojiClicked = "";
 var lastEmojiID = "";
 var clickCounter = 0;
 var completeCounter = 0;
 var complete_percentage = 0;
+// *************************************************
 
 
 // function to execute when a button is clicked
@@ -115,6 +117,7 @@ function reset() {
     clickCounter = 0;
 }
 
+// reset game to initial state
 function reInitialize() {
     lastEmojiID = "";
     clickCounter = 0;
@@ -127,17 +130,15 @@ function reInitialize() {
 function updateCompleteStatus() {
     const progressScore = document.getElementById("scoreValue");
     progressScore.innerText = calculateCompletePercentage().toString();
-    // NOTE: 
-    // Need to hide both matched emojis... best not within this function
 }
 
-// button emoji valus should be already stored in the 
+// button emoji values should be already stored in the 
 // lastEmojiClicked variable
 function hideButtonContent(buttonID) {
     const buttoninfo = document.getElementById(buttonID);
     buttoninfo.innerText = '';
 
-    // TODO: Make the button unclickable
+    // TODO: Make the button unclickable (Important)
 
 }
 
@@ -163,3 +164,6 @@ function restart() {
     reInitialize()
     setUp()
 }
+
+// TODO: Rewrite using React
+// Should be fairly easy from here
