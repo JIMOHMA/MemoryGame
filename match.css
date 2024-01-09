@@ -16,6 +16,38 @@ html {
     font-size: 16px;
 }
 
+section {
+    height: 100vh;
+}
+
+.scorekeeper {
+    align-self: center;
+    position: relative;
+    margin: 30px auto;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    background-color: red;
+}
+
+.scorekeeper p {
+    width: 100%;
+    font-size: 30px;
+    padding: 15px;
+    background-color: rgb(39, 208, 45);
+}
+
+.scoreValue {
+    font-size: 2.5rem;
+    font-size: 30px;
+    padding-right: 0;
+}
+
 .flex-container {
     display: flex;
     justify-content: center;
@@ -37,6 +69,10 @@ html {
     width: 100px;
     height: 100px;
     min-width: 25%;
+}
+
+.buttonObj {
+    font-size: 2rem;
 }
 
 @media all and (min-width: 815px) {
