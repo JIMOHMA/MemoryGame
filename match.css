@@ -75,6 +75,15 @@ section {
     font-size: 2rem;
 }
 
+#load {
+    font-size: 24px;
+}
+
+#restart {
+    font-size: 20px;
+    /* height: 100 */
+}
+
 @media all and (min-width: 815px) {
     .flex-container button {
         width: 100px;
@@ -120,4 +129,3 @@ section {
         resize: none;
     }
 }
-

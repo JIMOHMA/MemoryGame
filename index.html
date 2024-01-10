@@ -10,8 +10,9 @@
     <!-- Vanilla JS approach to match game -->
     <section>
         <div class="scorekeeper">
-            <p>Completion: <span class="scoreValue" id="scoreValue">0</span><span style="font-size: 2rem; padding-left: 3px;"> %</span>
-        </p>
+            <button id="load" onclick="setUp()">Load Game</button>
+            <p>Completion: <span class="scoreValue" id="scoreValue">0</span><span style="font-size: 2rem; padding-left: 3px;"> %</span></p>
+            <button id="restart" onclick="restart()" hidden="true" >Restart</button>
         </div>
 
         <div class="flex-container">
@@ -33,8 +34,6 @@
             <button class="buttonObj" id="button15"></button>
         </div>
         
-        <button id="load" onclick="setUp()">Load Game</button>
-        <button id="restart" onclick="restart()" hidden="true" >Restart</button>
     </section>
 
     <!-- Repeat the above div structure to create a 4x4 grid -->
