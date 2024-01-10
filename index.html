@@ -4,20 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="match.css">
 </head>
 <body>
+    <!-- Vanilla JS approach to match game -->
+    <section>
+        <div class="scorekeeper">
+            <p>Completion: <span class="scoreValue" id="scoreValue">0</span><span style="font-size: 2rem; padding-left: 3px;"> %</span>
+        </p>
+        </div>
+
+        <div class="flex-container">
+            <button class="buttonObj" id="button0"></button>
+            <button class="buttonObj" id="button1"></button>
+            <button class="buttonObj" id="button2"></button>
+            <button class="buttonObj" id="button3"></button>
+            <button class="buttonObj" id="button4"></button>
+            <button class="buttonObj" id="button5"></button>
+            <button class="buttonObj" id="button6"></button>
+            <button class="buttonObj" id="button7"></button>
+            <button class="buttonObj" id="button8"></button>
+            <button class="buttonObj" id="button9"></button>
+            <button class="buttonObj" id="button10"></button>
+            <button class="buttonObj" id="button11"></button>
+            <button class="buttonObj" id="button12"></button>
+            <button class="buttonObj" id="button13"></button>
+            <button class="buttonObj" id="button14"></button>
+            <button class="buttonObj" id="button15"></button>
+        </div>
+        
+        <button onclick="setUp()">Click Here</button>
+        <button id="restart" onclick="restart()" hidden="true" >Restart</button>
+    </section>
+
+    <!-- Repeat the above div structure to create a 4x4 grid -->
+    
     
 
-    <h1>Hello There</h1>
-    <h1>Name in local storage is: </h1>
-    <h1 id="demo"></h1>
-
-    <input id="first" type="text">
-    <input id="last" type="text">
-
-    <button onclick="getName()">Get Name</button>
-    <button onclick="setName()">Set Name</button>
-
-    <script src="localstorage.js"></script>
+    <script src="match.js"></script>
 </body>
 </html>
