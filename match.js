@@ -35,15 +35,19 @@ function setUp() {
     
     let uniqueInfo = getUniqueNumbers(0, 15, gridSize);
     let counter = 0;
+    // populate the grid the random emojis
     grid.map((item) => {
         item.textContent = emojiPairs.get(uniqueInfo[counter]);
+        item.disabled = false;
         counter++;
     });
     console.log(emojiPairs);
 
     // call function to add the onClick event listener
     addClickEventToButton();
-    
+
+    // hide/disable the load button is pressed
+    document.getElementById("load").hidden = true;
 }
 
 // add event Listener to the clicked event on every button
@@ -100,7 +104,6 @@ function mouseDown(event)
                 // unhide the restart button to re-initialize the grid
                 document.getElementById("restart").hidden = false;
             }
-
         }else {
             // we don't have a matching pair, unhide the first clicked button
             unhideLastClickedButton(lastEmojiID);
@@ -123,6 +126,13 @@ function reInitialize() {
     completeCounter = 0;
     complete_percentage = 0;
     document.getElementById("scoreValue").innerText = complete_percentage.toString();
+
+    var grid = document.getElementsByClassName("buttonObj");
+    grid = [...grid]
+    grid.map((emojiButton) => {
+        console.log(`emojiButton is ${emojiButton}`);
+        emojiButton.disabled = false; // this is useful when the game restarts
+    })
 }
 
 // only updates upon a successful match of two emojis 
@@ -131,14 +141,6 @@ function updateCompleteStatus() {
     progressScore.innerText = calculateCompletePercentage().toString();
 }
 
-// button emoji values should be already stored in the 
-// lastEmojiClicked variable
-function hideButtonContent(buttonID) {
-    const buttoninfo = document.getElementById(buttonID);
-    buttoninfo.innerText = '';
-    // TODO: Make the button unclickable (Important)
-
-}
 
 function calculateCompletePercentage() {
     // we only call this function upon a successful match
@@ -148,10 +150,21 @@ function calculateCompletePercentage() {
     return complete_percentage // divide by 16 cause we have 16 emojis in total
 }
 
+// button emoji values should be already stored in the 
+// lastEmojiClicked variable
+function hideButtonContent(buttonID) {
+    const buttoninfo = document.getElementById(buttonID);
+    buttoninfo.innerText = '';
+    buttoninfo.disabled = true;
+    // TODO: Make the button unclickable (Important)
+
+}
+
 function unhideLastClickedButton(buttonID) {
     // unhide the last clicked emoji since we don't have a match
     const buttoninfo = document.getElementById(buttonID);
     buttoninfo.innerText = lastEmojiClicked;
+    buttoninfo.disabled = false;
 }
 
 function restart() {
@@ -164,3 +177,9 @@ function restart() {
 
 // TODO: Rewrite using React
 // Should be fairly easy from here
+
+
+// Bugs TODO: DONE
+// 1. Fix incorrect progression score upon click of a
+// completed emoji pair
+// 2. Either disabled the button or do something else
