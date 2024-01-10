@@ -141,7 +141,6 @@ function updateCompleteStatus() {
     progressScore.innerText = calculateCompletePercentage().toString();
 }
 
-
 function calculateCompletePercentage() {
     // we only call this function upon a successful match
     // hence two emojis need to be hidden on the grid
