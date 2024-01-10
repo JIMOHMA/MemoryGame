@@ -69,7 +69,6 @@ var completeCounter = 0;
 var complete_percentage = 0;
 // *************************************************
 
-
 // function to execute when a button is clicked
 function mouseDown(event)
 {
@@ -137,11 +136,9 @@ function updateCompleteStatus() {
 function hideButtonContent(buttonID) {
     const buttoninfo = document.getElementById(buttonID);
     buttoninfo.innerText = '';
-
     // TODO: Make the button unclickable (Important)
 
 }
-
 
 function calculateCompletePercentage() {
     // we only call this function upon a successful match
