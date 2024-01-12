@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.chatbox {
+    width: 25%;
+    align-self: center;
+    /* padding-bottom: 30%; */
+}
+.chatbox p {
+    padding: 0 15% 30%;
+}
+.game-info {
+
+    width: 25%;
+    align-self: flex-start;
+}
+
+.personal-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* justify-content: center; */
+    align-items: center;
+    height: 100vh;
+}
+
+.personal-info .best-record {
+    align-self: center;
+}
+
+.game-grid {
+    display: flex;
+    flex-direction: row;
+    min-width: 50%;
+}
