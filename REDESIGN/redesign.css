@@ -16,13 +16,45 @@
 .chatbox {
     width: 25%;
     align-self: center;
-    /* padding-bottom: 30%; */
 }
-.chatbox p {
-    padding: 0 15% 30%;
-}
-.game-info {
 
+.chatbox p {
+    padding: 0 15% 30%; /* 0% top, 15% left and right, 30% bottom */
+}
+
+.game-grid {
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    gap: 40px;
+    height: 80%;
+}
+
+.control-button {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.game-emojibutton {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+    height: 100%;
+    width: 90%;
+    /* padding: 0 auto; */
+}
+
+.game-emojibutton button {
+    /* min-width: 25%; */
+    width: 20%;
+}
+
+.game-info {
     width: 25%;
     align-self: flex-start;
 }
@@ -38,10 +70,4 @@
 
 .personal-info .best-record {
     align-self: center;
-}
-
-.game-grid {
-    display: flex;
-    flex-direction: row;
-    min-width: 50%;
 }
