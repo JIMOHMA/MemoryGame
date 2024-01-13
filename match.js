@@ -182,3 +182,5 @@ function restart() {
 // 1. Fix incorrect progression score upon click of a
 // completed emoji pair
 // 2. Either disabled the button or do something else
+// 3. Add a stopwatch timer to the page
+// Helper Link: https://www.educative.io/answers/how-to-create-a-stopwatch-in-javascript
