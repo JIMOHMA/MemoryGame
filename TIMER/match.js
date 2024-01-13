@@ -260,8 +260,8 @@ function setBestTime() {
 
 // update local storage with the overall best time
 function updateBestTime() {
-    // before updating the localStorage, compare with the previously 
-    // stored record
+    // before updating the localStorage, compare with the 
+    // previously stored record
     try {
         let storage = JSON.parse(localStorage.getItem("currentBestTime"));
         if (storage[0] <= gameTimeObject[0]) {
