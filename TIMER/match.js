@@ -249,19 +249,27 @@ function setGameTime() {
     document.getElementById("current-time").innerText = displayTime; // update the display
 
     // to be stored in locaStorage
-    gameTimeObject = {
-        "milliseconds": gameTime,
-        "formatted": displayTime,
-    }
+    gameTimeObject = [ gameTime, displayTime ]
 }
 
 // updates the page on restart of game with the best time
 function setBestTime() {
     const bestTimeElement = document.getElementById("best-time");
-    bestTimeElement.innerText = localStorage.getItem("currentBestTime");
+    bestTimeElement.innerText = JSON.parse(localStorage.getItem("currentBestTime"))[1];
 }
 
 // update local storage with the overall best time
 function updateBestTime() {
-    localStorage.setItem("currentBestTime", gameTimeObject.formatted);
+    // before updating the localStorage, compare with the previously 
+    // stored record
+    try {
+        let storage = JSON.parse(localStorage.getItem("currentBestTime"));
+        if (storage[0] <= gameTimeObject[0]) {
+            return
+        } else {
+            localStorage.setItem("currentBestTime", JSON.stringify(gameTimeObject));
+        }
+    } catch (error) {
+        localStorage.setItem("currentBestTime", JSON.stringify(gameTimeObject));
+    }
 }
