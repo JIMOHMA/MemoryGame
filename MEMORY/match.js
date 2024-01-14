@@ -25,6 +25,9 @@ function getUniqueNumbers(min, max, count) {
 
 // setup function for populating the board
 function setUp() {
+    // Hide cursor so game fully loads
+    hideCursorOnButtons();
+
     init() // sets up the map for the grid
     // console.log(`emojiPairs is ${emojiPairs}`);
     // console.log("Here now");
@@ -46,7 +49,7 @@ function setUp() {
     // call function to add the onClick event listener
     addClickEventToButton();
 
-    // hide/disable the load button is pressed
+    // hide/disable the load button is pressed and unhide cursor when emojis are fully faded
     document.getElementById("load").hidden = true;
     fadeOutEmojis(3000); // fadeDelay by 3 seconds
 }
@@ -366,12 +369,38 @@ function fadeOutEmojis(fadeDelay) {
         emojiGrid.map((emoji) => {
             emoji.style.opacity = "0"; // blur every emoji after 5 seconds
             emoji.style.transition = 'opacity 5s ease-in-out';
-        })
-      }, fadeDelay);
+        });  
+    }, fadeDelay);
+    
+    setTimeout(() => {
+        unhideCursorOnButtons();  
+    }, fadeDelay + 5000); // min of 5 seconds to unhide cursor
 }
 
 // reproduces the ID of the emojis from the button IDs
 function getEmojiID(buttonID) {
     let temp = buttonID.split("button");
     return `emoji${temp[1]}`
+}
+
+function hideCursorOnButtons() {
+    let temp = document.querySelectorAll('.buttonObj');
+    temp = [...temp];
+    temp.map((button) => {
+        button.classList.add('hide-cursor');
+    });
+}
+
+function unhideCursorOnButtons() {
+    let temp = document.querySelectorAll('.buttonObj');
+    temp = [...temp];
+    temp.map((button) => {
+        button.classList.remove('hide-cursor');
+    });
+    
+    let temp2 = document.querySelectorAll('.buttonObj');
+    temp2 = [...temp2];
+    temp2.map((button) => {
+        button.classList.add('unhide-cursor');
+    });
 }
