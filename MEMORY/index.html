@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="match.css">
+</head>
+<body>
+    <!-- Vanilla JS approach to match game -->
+    <section>
+        <div id="stopwatch">00:00:00</div>
+
+        <div>
+            Current Time: <span id="current-time"></span>
+        </div>
+
+        <div>
+            Best Time: <span id="best-time"></span>
+        </div>
+
+
+        <div class="scorekeeper">
+            <button id="load" onclick="setUp()">Load Game</button>
+            <p>Completion: <span class="scoreValue" id="scoreValue">0</span>
+                <span style="font-size: 2rem; padding-left: 3px;"> %</span>
+            </p>
+            <button id="restart" onclick="restart()" hidden="true" >Restart</button>
+        </div>
+
+        <div class="flex-container">
+            <button id="button0" class="buttonObj"><span id="emoji0" class="emj"></span></button>
+            <button id="button1" class="buttonObj"><span id="emoji1" class="emj"></span></button>
+            <button id="button2" class="buttonObj"><span id="emoji2" class="emj"></span></button>
+            <button id="button3" class="buttonObj"><span id="emoji3" class="emj"></span></button>
+            <button id="button4" class="buttonObj"><span id="emoji4" class="emj"></span></button>
+            <button id="button5" class="buttonObj"><span id="emoji5" class="emj"></span></button>
+            <button id="button6" class="buttonObj"><span id="emoji6" class="emj"></span></button>
+            <button id="button7" class="buttonObj"><span id="emoji7" class="emj"></span></button>
+            <button id="button8" class="buttonObj"><span id="emoji8" class="emj"></span></button>
+            <button id="button9" class="buttonObj"><span id="emoji9" class="emj"></span></button>
+            <button id="button10" class="buttonObj"><span id="emoji10" class="emj"></span></button>
+            <button id="button11" class="buttonObj"><span id="emoji11" class="emj"></span></button>
+            <button id="button12" class="buttonObj"><span id="emoji12" class="emj"></span></button>
+            <button id="button13" class="buttonObj"><span id="emoji13" class="emj"></span></button>
+            <button id="button14" class="buttonObj"><span id="emoji14" class="emj"></span></button>
+            <button id="button15" class="buttonObj"><span id="emoji15" class="emj"></span></button>
+        </div>
+    </section>
+
+    <script src="match.js"></script>
+</body>
+</html>
