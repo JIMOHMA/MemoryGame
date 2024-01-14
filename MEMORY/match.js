@@ -10,8 +10,7 @@ function init() {
         emojiPairs.set(counter2, emoji)
         counter =  counter + 2;
         counter2 = counter2 + 2;
-    })
-    // console.log(`emojiPairs is ${emojiPairs}`);
+    });
 }
     
 function getUniqueNumbers(min, max, count) {
@@ -29,8 +28,6 @@ function setUp() {
     hideCursorOnButtons();
 
     init() // sets up the map for the grid
-    // console.log(`emojiPairs is ${emojiPairs}`);
-    // console.log("Here now");
     var grid = document.getElementsByClassName("emj");
     grid = [...grid]
     const gridSize = grid.length;
@@ -76,7 +73,7 @@ var secondEmojiID = "";
 var clickCounter = 0;
 var completeCounter = 0;
 var complete_percentage = 0;
-var selectedEmojis = [];
+var selectedEmojis = []; // for tracking the valid pairs already selected
 // *************************************************
 
 // Always return true unless emoji is already selected
@@ -104,8 +101,7 @@ function mouseDown(event)
         console.log(`click conuter: ${clickCounter}`);
         // lastEmojiClicked = this.innerText; // value of prev button clicked
         // lastEmojiID = this.id;
-        
-        // lastEmojiID = getEmojiID(this.id);
+
         lastEmojiID = getEmojiID(this.id);
         lastEmojiClicked = document.getElementById(lastEmojiID).innerText; // value of prev button clicked
         
@@ -113,7 +109,6 @@ function mouseDown(event)
         console.log(`emoji ID is: ${lastEmojiID}`);
         console.log(`emoji is: ${lastEmojiClicked}`);
         
-        // hideButtonContent(lastEmojiID);
         revealButtonContent(lastEmojiID);
     } else {
         // only case should be the second click
@@ -130,7 +125,7 @@ function mouseDown(event)
 
             // we have a matching poir, so unhide both emojis forever
             unhideLastClickedButton2(lastEmojiID);
-            unhideLastClickedButton2(secondEmojiID); // hides the second button clicked
+            unhideLastClickedButton2(secondEmojiID);
             updateCompleteStatus();
             reset();
             // TODO: post congratulations message
@@ -155,11 +150,10 @@ function mouseDown(event)
                 reset();
             }, 150); // shows the second emoji for 150 milliseconds before hiding it 
         }
-
     }
 }
 
-// resets the global tracking variables
+// resets some global tracking variables
 function reset() {
     lastEmojiID = "";
     secondEmojiID = "";
@@ -198,16 +192,18 @@ function calculateCompletePercentage() {
     return complete_percentage // divide by 16 cause we have 16 emojis in total
 }
 
+// DEPRECATED
 // button emoji values should be already stored in the 
 // lastEmojiClicked variable
 // using hidden property
-function hideButtonContent(buttonID) {
-    const buttoninfo = document.getElementById(buttonID);
-    buttoninfo.innerText = '';
-    buttoninfo.disabled = true;
-    // TODO: Make the button unclickable (Important)
-}
+// function hideButtonContent(buttonID) {
+//     const buttoninfo = document.getElementById(buttonID);
+//     buttoninfo.innerText = '';
+//     buttoninfo.disabled = true;
+//     // TODO: Make the button unclickable (Important)
+// }
 
+// DEPRECATED
 // using hidden property
 // function unhideLastClickedButton(buttonID) {
 //     // unhide the last clicked emoji since we don't have a match
@@ -216,7 +212,7 @@ function hideButtonContent(buttonID) {
 //     buttoninfo.disabled = false;
 // }
 
-// using hidden property
+// NB: This may actually not be working... TO BE INVESTIGATED AND/OR REMOVED
 function unhideLastClickedButton2(buttonID) {
     // unhide the last clicked emoji since we don't have a match
     const buttoninfo = document.getElementById(buttonID);
@@ -228,7 +224,7 @@ function revealButtonContent(buttonID) {
     const buttoninfo = document.getElementById(buttonID);
     buttoninfo.style.opacity = "1";
     buttoninfo.style.transition = 'opacity 0.3s ease-in'
-    buttoninfo.disabled = true; // not working for some reason
+    buttoninfo.disabled = true; // not working for some reason... TO BE INVESTIGATED AND/OR REMOVED
 }
 
 // using opacity
@@ -242,7 +238,7 @@ function concealButtonContent(buttonID) {
 // function to call upon completion and restart of the game
 function restart() {
 
-    // wipe out the grid and wait 1 second
+    // wipe out the grid and wait 1 second before game setUp()
     let grid = document.getElementsByClassName("emj");
     grid = [...grid];
     grid.map((emoji) => {
@@ -357,9 +353,9 @@ function updateBestTime() {
 }
 
 function fadeOutEmojis(fadeDelay) {
-    // const emojiGrid = document.querySelectorAll(".buttonObj .emj");
     let emojiGrid = document.querySelectorAll(".emj");
     emojiGrid = [...emojiGrid];
+
     // change opaacity on each emoji button after n seconds with a transition effect
     setTimeout(() => {
         emojiGrid.map((emoji) => {
@@ -379,6 +375,7 @@ function getEmojiID(buttonID) {
     return `emoji${temp[1]}`
 }
 
+// render all the buttons unclickable until all the emojis fade away
 function hideCursorOnButtons() {
     // In the case of a restart we want to remove the unhide-cursor class
     let temp = document.querySelectorAll('.buttonObj');
@@ -394,6 +391,7 @@ function hideCursorOnButtons() {
     });
 }
 
+// render all the buttons clickable after all the emojis are faded
 function unhideCursorOnButtons() {
     let temp = document.querySelectorAll('.buttonObj');
     temp = [...temp];
