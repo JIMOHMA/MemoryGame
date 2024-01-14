@@ -16,6 +16,7 @@
 .chatbox {
     width: 25%;
     align-self: center;
+    color: red;
 }
 
 .chatbox p {
@@ -70,4 +71,58 @@
 
 .personal-info .best-record {
     align-self: center;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .chatbox {
+        color: blue;
+    }
+
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    
+    .container {
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .chatbox {
+        /* font-size: 1000px; */
+        color: rgb(44, 131, 131);
+        width: 100%;
+        background-color: black;
+        height: 50px;
+    }
+
+    .chatbox p {
+        /* font-size: 150px; */
+    }
+
+    .personal-info {
+        height: 50px;
+        flex-direction: row;
+    }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .chatbox {
+        color: green;
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .chatbox {
+        color: black;
+    }
 }
