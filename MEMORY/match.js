@@ -223,10 +223,6 @@ function unhideLastClickedButton2(buttonID) {
     buttoninfo.disabled = true;
 }
 
-function doNothing() {
-    console.log(`${this.id} does nothing`);
-}
-
 // using opacity
 function revealButtonContent(buttonID) {
     const buttoninfo = document.getElementById(buttonID);
@@ -384,9 +380,16 @@ function getEmojiID(buttonID) {
 }
 
 function hideCursorOnButtons() {
+    // In the case of a restart we want to remove the unhide-cursor class
     let temp = document.querySelectorAll('.buttonObj');
     temp = [...temp];
     temp.map((button) => {
+        button.classList.remove('unhide-cursor');
+    });
+
+    let temp2 = document.querySelectorAll('.buttonObj');
+    temp2 = [...temp2];
+    temp2.map((button) => {
         button.classList.add('hide-cursor');
     });
 }
