@@ -73,11 +73,21 @@ var secondEmojiID = "";
 var clickCounter = 0;
 var completeCounter = 0;
 var complete_percentage = 0;
+var selectedEmojis = [];
 // *************************************************
+
+// Always return true unless emoji is already selected
+function newSelection(thisEmojiID, thatEmojiID) {
+    if (selectedEmojis.includes(thisEmojiID) && selectedEmojis.includes(thatEmojiID)) {
+        return false;
+    }
+    return true;
+}
 
 // function to execute when a button is clicked
 function mouseDown(event)
 {
+    console.log(selectedEmojis);
     // get element of clicked button by ID
     const lastClickedButton = document.getElementById(this.id);
     console.log(lastClickedButton);
@@ -92,23 +102,30 @@ function mouseDown(event)
         // lastEmojiClicked = this.innerText; // value of prev button clicked
         // lastEmojiID = this.id;
         
+        // lastEmojiID = getEmojiID(this.id);
         lastEmojiID = getEmojiID(this.id);
         lastEmojiClicked = document.getElementById(lastEmojiID).innerText; // value of prev button clicked
-
+        
         console.log(`button clicked ID is: ${this.id}`);
         console.log(`emoji ID is: ${lastEmojiID}`);
         console.log(`emoji is: ${lastEmojiClicked}`);
-
+        
         // hideButtonContent(lastEmojiID);
         revealButtonContent(lastEmojiID);
     } else {
         // only case should be the second click
         // check for a matching pair of emojis
         secondEmojiID = getEmojiID(this.id);
-        if ((lastEmojiClicked === this.innerText) && (lastEmojiID !== secondEmojiID)) {
+        console.log(`1st emoji ID is: ${lastEmojiID}`);
+        console.log(`2nd emoji ID is: ${secondEmojiID}`);
+        if ((lastEmojiClicked === this.innerText) && (lastEmojiID !== secondEmojiID) && newSelection(lastEmojiID, secondEmojiID)) {
             revealButtonContent(secondEmojiID); // reveal the emoji of the second emoji clicked
+            
+            // track both emojis clicked
+            selectedEmojis.push(lastEmojiID);
+            selectedEmojis.push(secondEmojiID);
 
-            // we have a matching poir, so hide both emojis
+            // we have a matching poir, so unhide both emojis forever
             unhideLastClickedButton2(lastEmojiID);
             unhideLastClickedButton2(secondEmojiID); // hides the second button clicked
             updateCompleteStatus();
@@ -126,11 +143,12 @@ function mouseDown(event)
             secondEmojiID = getEmojiID(this.id)
             revealButtonContent(secondEmojiID); // reveal the emoji of the second button clicked
             setTimeout(() => {
-                // we have a matching poir, so hide both emojis
-                // we don't have a matching pair, unhide the first clicked button
-                // unhideLastClickedButton(lastEmojiID);
-                concealButtonContent(lastEmojiID);
-                concealButtonContent(secondEmojiID);
+                // 1. If the pair clicked were already selected, we leave them revealed
+                // 2. Only conceal the non-matching pair clicked which were never selected previously
+                if (newSelection(lastEmojiID, secondEmojiID)) {
+                    concealButtonContent(lastEmojiID);
+                    concealButtonContent(secondEmojiID);
+                }
                 reset();
             }, 150); // shows the second emoji for 150 milliseconds before hiding it 
         }
@@ -152,6 +170,7 @@ function reInitialize() {
     clickCounter = 0;
     completeCounter = 0;
     complete_percentage = 0;
+    selectedEmojis = [];
     document.getElementById("scoreValue").innerText = complete_percentage.toString();
 
     var grid = document.getElementsByClassName("emj");
@@ -199,13 +218,6 @@ function unhideLastClickedButton2(buttonID) {
     // unhide the last clicked emoji since we don't have a match
     const buttoninfo = document.getElementById(buttonID);
     buttoninfo.disabled = true;
-
-    // we need to remove the event listener on second click of matched pairs
-    // Step 1: Remove the initial event listener
-    buttoninfo.removeEventListener('click', mouseDown);
-    
-    // Step 2: Add the updated event listener
-    buttoninfo.addEventListener('click', doNothing);
 }
 
 function doNothing() {
@@ -217,7 +229,7 @@ function revealButtonContent(buttonID) {
     const buttoninfo = document.getElementById(buttonID);
     buttoninfo.style.opacity = "1";
     buttoninfo.style.transition = 'opacity 0.3s ease-in'
-    buttoninfo.disabled = true;
+    buttoninfo.disabled = true; // not working for some reason
 }
 
 // using opacity
