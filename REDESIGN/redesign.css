@@ -5,10 +5,33 @@
 
 body {
     background-color: rgb(98, 156, 255);
+    min-width: 420px;
 }
 
 button {
     cursor: pointer;
+}
+
+.load, .restart {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 100%;
+    color: white;
+
+    /* width: 100%; */
+    /* height: 48px; */
+    padding: auto;
+    position: relative;
+    font-family: Lucida Sans, Helvetica, sans-serif;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: rgba(10, 10, 10, 0.5) 1px 2px 2px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .container {
@@ -28,11 +51,19 @@ button {
 }
 
 .chatbox p {
-    padding: 0 15% 30%; /* 0% top, 15% left and right, 30% bottom */
+    /* padding: 0 15% 30%; 0% top, 15% left and right, 30% bottom */
     text-align: center;
+    font-size: 2rem;
+    margin: 15px;
+    /* margin-bottom: 2px; */
+    letter-spacing: 1px;
+    border-radius: 15px;
+    background: rgb(203, 204, 198);
 }
 
 .chatbox p i {
+    margin: 20px;
+    margin-right: 5px;
     color: rgb(208, 102, 102);
 }
 
@@ -50,9 +81,11 @@ button {
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+    /* font-size: 20px; */
 }
 
 .game-emojibutton {
+    background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -60,13 +93,18 @@ button {
     gap: 2%;
     height: 100%;
     width: 90%;
+    padding: 10px;
+    border-radius: 20px;
     /* padding: 0 auto; */
 }
 
 .game-emojibutton button {
     /* min-width: 25%; */
-    width: 20%;
+    width: 23%;
     height: calc(100% - width);
+    background-color: rgb(222, 222, 222);
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 15px;
 }
 
 .game-info {
@@ -77,15 +115,92 @@ button {
 .personal-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     /* justify-content: center; */
     align-items: flex-start;
     height: 100vh;
+    font-size: 40px;
+    /* align-content: center; */
 }
 
-/* .personal-info .best-record {
-    align-self: center;
-} */
+.score {
+    margin-bottom: 50%;
+    background: rgb(191, 211, 214);
+    border-radius: 5px;
+    padding: 3px;
+    /* letter-spacing: 2px; */
+}
+
+.timer {
+    background: rgb(189, 100, 65);
+    border-radius: 5px;
+    padding: 3px;
+    /* letter-spacing: 1px; */
+}
+
+.best-record {
+    padding: 3px;
+    margin-top: 50%;
+    background: rgb(141, 196, 184);
+    border-radius: 5px;
+    /* letter-spacing: 1px; */
+}
+
+/* Button looks */
+.buttonload {
+    width: 20%;
+    height: 60px;
+    padding: 3px 16px 3px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border: 2px solid #ccc;
+    position: relative;
+     line-height:44px;
+    /* Label */
+    font-family: Lucida Sans, Helvetica, sans-serif;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: rgba(10, 10, 10, 0.5) 1px 2px 2px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+  .redish{
+    background-color: rgba(198, 115, 60, 0.8);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(155, 79, 28, 0.8)), to(rgba(255, 125, 108, 0.9)));
+    border-top-color: #c18f8b;
+    border-right-color: #bf7558;
+    border-bottom-color: #ca7c4f;
+    border-left-color: #a57d76;
+    -webkit-box-shadow: rgba(240, 115, 66, 0.5) 0px 10px 16px;
+    -moz-box-shadow: rgba(240, 115, 66, 0.5) 0px 10px 16px; /* FF 3.5+ */
+  }
+
+  .greenish{
+    background-color: rgba(60, 198, 145, 0.8);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(28, 155, 96, 0.8)), to(rgba(108, 255, 182, 0.9)));
+    border-top-color: #8bc197;
+    border-right-color: #58bf77;
+    border-bottom-color: #4fca97;
+    border-left-color: #76a58d;
+    -webkit-box-shadow: rgba(66, 228, 240, 0.5) 0px 10px 16px;
+    -moz-box-shadow: rgba(66, 228, 240, 0.5) 0px 10px 16px; /* FF 3.5+ */
+  }
+  
+  .buttonload .glare {
+    position: relative;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    height: 1px;
+    width: 100%;
+    padding: 12px 0;
+    background-color: rgba(255, 255, 255, 0.22);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 95%, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0)));
+  }
+/* End button looks */
 
 
 /* Extra small devices (phones, 600px and down) */
@@ -154,9 +269,30 @@ button {
         align-items: flex-start;
         margin-top: 70px;
         height: 100%;
+        font-size: 2rem;
     }
 
     .personal-info .best-record {
         align-self: flex-start;
     }
+
+    .score {
+        margin-bottom: 0;
+    }
+
+    .timer{
+        margin-bottom: 0;
+    }
+
+    .best-record {
+        margin-top: 0;
+    }
 }
+
+@media only screen and (max-width: 900px) {
+    .control-button .load, .restart{
+        font-size: 90%;
+        text-align: center;
+    }
+}
+
