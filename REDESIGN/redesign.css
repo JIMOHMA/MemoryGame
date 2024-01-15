@@ -73,6 +73,7 @@ button {
     min-width: 50%;
     gap: 40px;
     height: 80%;
+    /* width: 40%; */
 }
 
 .control-button {
@@ -105,6 +106,8 @@ button {
     background-color: rgb(222, 222, 222);
     border: 1px solid rgb(222, 222, 222);
     border-radius: 15px;
+    font-size: 3rem;
+    text-align: center;
 }
 
 .game-info {
@@ -241,6 +244,7 @@ button {
 
     .game-grid {
         height: 50%;
+        width: 90%;
     }
 
     .control-button {
@@ -255,7 +259,11 @@ button {
         justify-content: center;
         gap: 2%;
         height: 100%;
-        /* width: 100%; */
+        /* width: 80%; */
+    }
+
+    .game-emojibutton button {
+        font-size: 2rem;
     }
 
     .game-info {
