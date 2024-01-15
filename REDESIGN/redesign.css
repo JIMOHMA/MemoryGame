@@ -3,6 +3,14 @@
     padding: 0;
 }
 
+body {
+    background-color: rgb(98, 156, 255);
+}
+
+button {
+    cursor: pointer;
+}
+
 .container {
     height: 100vh;
     width: 100%;
@@ -16,11 +24,16 @@
 .chatbox {
     width: 25%;
     align-self: center;
-    color: red;
+    /* color: red; */
 }
 
 .chatbox p {
     padding: 0 15% 30%; /* 0% top, 15% left and right, 30% bottom */
+    text-align: center;
+}
+
+.chatbox p i {
+    color: rgb(208, 102, 102);
 }
 
 .game-grid {
@@ -53,6 +66,7 @@
 .game-emojibutton button {
     /* min-width: 25%; */
     width: 20%;
+    height: calc(100% - width);
 }
 
 .game-info {
@@ -65,13 +79,13 @@
     flex-direction: column;
     justify-content: space-around;
     /* justify-content: center; */
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
 }
 
-.personal-info .best-record {
+/* .personal-info .best-record {
     align-self: center;
-}
+} */
 
 
 /* Extra small devices (phones, 600px and down) */
@@ -84,45 +98,65 @@
 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     
     .container {
         height: 100vh;
         flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
     }
 
     .chatbox {
-        /* font-size: 1000px; */
         color: rgb(44, 131, 131);
-        width: 100%;
-        background-color: black;
-        height: 50px;
+        height: 20%;
+        /* letter-spacing: 2px; */
+        text-wrap: wrap;
+        /* font-size: 25px; */
+        width: 75%;
+        align-self: center;
+        
     }
 
     .chatbox p {
-        /* font-size: 150px; */
+        margin-top: 50px;
+        font-size: 30px;
+    }
+
+    .game-grid {
+        height: 50%;
+    }
+
+    .control-button {
+        margin-top: 2rem;
+        gap: 20px;
+    }
+
+    .game-emojibutton {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2%;
+        height: 100%;
+        width: 100%;
+    }
+
+    .game-info {
+        height: 30%;
+        width: 100%;
     }
 
     .personal-info {
-        height: 50px;
         flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin-top: 70px;
+        height: 100%;
     }
-}
 
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    .chatbox {
-        color: green;
-    }
-}
-
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    .chatbox {
-        color: black;
+    .personal-info .best-record {
+        align-self: flex-start;
     }
 }
