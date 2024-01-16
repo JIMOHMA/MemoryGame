@@ -3,43 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Match Game</title>
     <link rel="stylesheet" href="match.css">
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <!-- Vanilla JS approach to match game -->
-    <section>
-        <div class="scorekeeper">
-            <button id="load" onclick="setUp()">Load Game</button>
-            <p>Completion: <span class="scoreValue" id="scoreValue">0</span><span style="font-size: 2rem; padding-left: 3px;"> %</span></p>
-            <button id="restart" onclick="restart()" hidden="true" >Restart</button>
-        </div>
-
-        <div class="flex-container">
-            <button class="buttonObj" id="button0"></button>
-            <button class="buttonObj" id="button1"></button>
-            <button class="buttonObj" id="button2"></button>
-            <button class="buttonObj" id="button3"></button>
-            <button class="buttonObj" id="button4"></button>
-            <button class="buttonObj" id="button5"></button>
-            <button class="buttonObj" id="button6"></button>
-            <button class="buttonObj" id="button7"></button>
-            <button class="buttonObj" id="button8"></button>
-            <button class="buttonObj" id="button9"></button>
-            <button class="buttonObj" id="button10"></button>
-            <button class="buttonObj" id="button11"></button>
-            <button class="buttonObj" id="button12"></button>
-            <button class="buttonObj" id="button13"></button>
-            <button class="buttonObj" id="button14"></button>
-            <button class="buttonObj" id="button15"></button>
-        </div>
-        
-    </section>
-
-    <!-- Repeat the above div structure to create a 4x4 grid -->
-    
-    
+    <div class="container">
+        <section class="chatbox">
+            <p>
+                <span>
+                    <i class='bx bxs-info-circle'></i>
+                </span>
+                Memorize and Match The Emojis
+            </p>
+        </section>
+        <section class="game-grid">
+            <div class="control-button">
+                <div class="buttonload greenish" id="load">
+                    <div class="glare">
+                        <button class="load" onclick="setUp()">Load Game</button>
+                    </div>
+                </div>
+                <div class="buttonload redish" id="restart" hidden="true">
+                    <div class="glare">
+                        <button class="restart" onclick="restart()">Restart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="game-emojibutton flex-container">
+                <button id="button0" class="emojibutton buttonObj"><span id="emoji0" class="emj"></span></button>
+                <button id="button1" class="emojibutton buttonObj"><span id="emoji1" class="emj"></span></button>
+                <button id="button2" class="emojibutton buttonObj"><span id="emoji2" class="emj"></span></button>
+                <button id="button3" class="emojibutton buttonObj"><span id="emoji3" class="emj"></span></button>
+                <button id="button4" class="emojibutton buttonObj"><span id="emoji4" class="emj"></span></button>
+                <button id="button5" class="emojibutton buttonObj"><span id="emoji5" class="emj"></span></button>
+                <button id="button6" class="emojibutton buttonObj"><span id="emoji6" class="emj"></span></button>
+                <button id="button7" class="emojibutton buttonObj"><span id="emoji7" class="emj"></span></button>
+                <button id="button8" class="emojibutton buttonObj"><span id="emoji8" class="emj"></span></button>
+                <button id="button9" class="emojibutton buttonObj"><span id="emoji9" class="emj"></span></button>
+                <button id="button10" class="emojibutton buttonObj"><span id="emoji10" class="emj"></span></button>
+                <button id="button11" class="emojibutton buttonObj"><span id="emoji11" class="emj"></span></button>
+                <button id="button12" class="emojibutton buttonObj"><span id="emoji12" class="emj"></span></button>
+                <button id="button13" class="emojibutton buttonObj"><span id="emoji13" class="emj"></span></button>
+                <button id="button14" class="emojibutton buttonObj"><span id="emoji14" class="emj"></span></button>
+                <button id="button15" class="emojibutton buttonObj"><span id="emoji15" class="emj"></span></button>
+            </div>
+        </section>
+        <section class="game-info">
+            <div class="personal-info">
+                <div class="score">Score
+                    <p class="scoreValue" id="scoreValue">0<span> %</span></p>
+                </div>
+                <div class="timer">Timer
+                    <p id="stopwatch">00:00:00</p>
+                </div>
+                <div class="best-record">Best
+                    <p id="best-time">00:00:00</p>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script src="match.js"></script>
+    <script src="confetti.js"></script>
+    <script>
+                // start
+        const temp = document.getElementById("scoreValue");
+        setInterval(() => {            
+            if (temp.innerText.toString() === "100 %") {
+                confetti.start();
+            }
+        }, 1000)
+
+        setInterval(() => {            
+            if (temp.innerText.toString() !== "100 %") {
+                confetti.stop();
+            }
+        }, 1000)
+    </script>
 </body>
 </html>

@@ -1,131 +1,318 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
 }
 
 body {
-    height: 100vh;
-    background-color: aqua;
+    background-color: rgb(98, 156, 255);
     min-width: 300px;
 }
 
-html {
-    font-size: 16px;
+button {
+    cursor: pointer;
 }
 
-section {
-    height: 100vh;
+/* Using to load game fully before playing */
+.hide-cursor {
+    pointer-events: none;
+    cursor: not-allowed; /* Set a specific cursor type */
 }
 
-.scorekeeper {
-    align-self: center;
-    position: relative;
-    margin: 30px auto;
-    padding-bottom: 30px;
-    padding-top: 30px;
-    width: 300px;
-    height: 50px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    align-content: flex-start;
-    background-color: red;
+.unhide-cursor {
+    pointer-events: auto;
+    cursor: pointer;
 }
+/* END */
 
-.scorekeeper p {
+.load, .restart {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 100%;
+    color: white;
+
     width: 100%;
-    font-size: 30px;
-    padding: 15px;
-    background-color: rgb(39, 208, 45);
+    /* height: 100%; */
+    padding: auto;
+    position: relative;
+    font-family: Lucida Sans, Helvetica, sans-serif;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: rgba(10, 10, 10, 0.5) 1px 2px 2px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
-.scoreValue {
-    font-size: 2.5rem;
-    font-size: 30px;
-    padding-right: 0;
-}
-
-.flex-container {
+.container {
+    height: 100vh;
+    width: 100%;
+    margin: auto;
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.chatbox {
+    width: 25%;
+    align-self: center;
+    /* color: red; */
+}
+
+.chatbox p {
+    /* padding: 0 15% 30%; 0% top, 15% left and right, 30% bottom */
+    text-align: center;
+    font-size: 2rem;
+    margin: 15px;
+    /* margin-bottom: 2px; */
+    letter-spacing: 1px;
+    border-radius: 15px;
+    background: rgb(203, 204, 198);
+}
+
+.chatbox p i {
+    margin: 20px;
+    margin-right: 5px;
+    color: rgb(208, 102, 102);
+}
+
+.game-grid {
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    gap: 40px;
+    height: 80%;
+    /* width: 40%; */
+}
+
+.control-button {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    align-content: center;
-    /* gap: 2px; */
+    gap: 20px;
+    /* font-size: 20px; */
+}
+
+.game-emojibutton {
+    background-color: rgb(255, 255, 255);
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+    height: 100%;
+    width: 95%;
+    padding: 10px;
+    border-radius: 20px;
+    /* padding: 0 auto; */
+}
+
+.game-emojibutton button {
+    /* min-width: 25%; */
+    width: 23%;
+    height: calc(100% - width);
+    background-color: rgb(222, 222, 222);
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 15px;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.game-info {
+    width: 25%;
+    align-self: flex-start;
+}
+
+.personal-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* justify-content: center; */
+    align-items: flex-start;
     height: 100vh;
-    width: 50%;
-    flex-basis: 200px;
-    background-color: blueviolet;
-    margin: 0 auto;
-    min-width: 300;
-}
-
-
-.flex-container button {
-    width: 100px;
-    height: 100px;
-    min-width: 25%;
-}
-
-.buttonObj {
     font-size: 2rem;
+    /* align-content: center; */
 }
 
-#load {
-    font-size: 24px;
+.score {
+    margin-bottom: 50%;
+    background: rgb(191, 211, 214);
+    border-radius: 5px;
+    padding: 3px;
+    /* letter-spacing: 2px; */
 }
 
-#restart {
-    font-size: 20px;
-    /* height: 100 */
+.timer {
+    background: rgb(189, 100, 65);
+    border-radius: 5px;
+    padding: 3px;
+    /* letter-spacing: 1px; */
 }
 
-@media all and (min-width: 815px) {
-    .flex-container button {
-        width: 100px;
-        height: 100px;
-        min-width: 25%;
-        /* flex-grow: 1;
-        flex-shrink: 1; */
+.best-record {
+    padding: 3px;
+    margin-top: 50%;
+    background: rgb(141, 196, 184);
+    border-radius: 5px;
+    /* letter-spacing: 1px; */
+}
+
+/* Button looks */
+.buttonload {
+    width: 20%;
+    height: 60px;
+    padding: 3px 16px 3px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border: 2px solid #ccc;
+    position: relative;
+     line-height:44px;
+    /* Label */
+    font-family: Lucida Sans, Helvetica, sans-serif;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: rgba(10, 10, 10, 0.5) 1px 2px 2px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+  .redish{
+    background-color: rgba(198, 115, 60, 0.8);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(155, 79, 28, 0.8)), to(rgba(255, 125, 108, 0.9)));
+    border-top-color: #c18f8b;
+    border-right-color: #bf7558;
+    border-bottom-color: #ca7c4f;
+    border-left-color: #a57d76;
+    -webkit-box-shadow: rgba(240, 115, 66, 0.5) 0px 10px 16px;
+    -moz-box-shadow: rgba(240, 115, 66, 0.5) 0px 10px 16px; /* FF 3.5+ */
+  }
+
+  .greenish{
+    background-color: rgba(60, 198, 145, 0.8);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(28, 155, 96, 0.8)), to(rgba(108, 255, 182, 0.9)));
+    border-top-color: #8bc197;
+    border-right-color: #58bf77;
+    border-bottom-color: #4fca97;
+    border-left-color: #76a58d;
+    -webkit-box-shadow: rgba(66, 228, 240, 0.5) 0px 10px 16px;
+    -moz-box-shadow: rgba(66, 228, 240, 0.5) 0px 10px 16px; /* FF 3.5+ */
+  }
+  
+  .buttonload .glare {
+    position: relative;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    height: 1px;
+    width: 100%;
+    padding: 12px 0;
+    background-color: rgba(255, 255, 255, 0.22);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 95%, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0)));
+  }
+/* End button looks */
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .chatbox {
+        color: blue;
     }
- }
 
-@media all and (min-width: 620px) and (max-width: 815px) { 
-    .flex-container button {
-        width: 75px;
-        height: 75px;
-        min-width: 25%;
-        /* flex-grow: 1; */
-        flex-shrink: 1;
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+    
+    .container {
+        height: 100vh;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+    }
+
+    .chatbox {
+        color: rgb(44, 131, 131);
+        height: 20%;
+        /* letter-spacing: 2px; */
+        text-wrap: wrap;
+        /* font-size: 25px; */
+        width: 75%;
+        align-self: center;
+        
+    }
+
+    .chatbox p {
+        margin-top: 50px;
+        font-size: 30px;
+    }
+
+    .game-grid {
+        height: 50%;
+        width: 90%;
+    }
+
+    .control-button {
+        margin-top: 2rem;
+        gap: 20px;
+    }
+
+    .game-emojibutton {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2%;
+        height: 100%;
+        /* width: 80%; */
+    }
+
+    .game-emojibutton button {
+        font-size: 2rem;
+    }
+
+    .game-info {
+        height: 30%;
+        width: 100%;
+    }
+
+    .personal-info {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin-top: 70px;
+        height: 100%;
+        font-size: 2rem;
+    }
+
+    .personal-info .best-record {
+        align-self: flex-start;
+    }
+
+    .score {
+        margin-bottom: 0;
+    }
+
+    .timer{
+        margin-bottom: 0;
+    }
+
+    .best-record {
+        margin-top: 0;
     }
 }
 
-@media all and (min-width: 420px) and (max-width: 620px) { 
-    .flex-container button {
-        width: 50px;
-        height: 50px;
-        min-width: 25%;
-        /* flex-grow: 1;
-        flex-shrink: 1; */
+@media only screen and (max-width: 900px) {
+    .control-button .load, .restart{
+        font-size: 90%;
+        text-align: center;
     }
 }
 
-@media all and (max-width: 420px) { 
-    .flex-container button {
-        width: 25px;
-        height: 25px;
-        min-width: 25%;
-        /* flex-grow: 1;
-        flex-shrink: 1; */
-    }
-}
-
-@media all and (max-width: 300px) { 
-    body {
-        resize: none;
-    }
-}
