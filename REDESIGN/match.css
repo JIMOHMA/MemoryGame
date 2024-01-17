@@ -112,9 +112,7 @@ button {
 }
 
 .game-emojibutton button {
-    /* min-width: 25%; */
     width: 23%;
-    height: calc(100% - width);
     background-color: rgb(222, 222, 222);
     border: 1px solid rgb(222, 222, 222);
     border-radius: 15px;
@@ -316,6 +314,69 @@ button {
     .control-button .load, .restart{
         font-size: 90%;
         text-align: center;
+    }
+}
+
+/* Mobile devices in orientation mode */
+@media only screen and (max-device-height: 768px) and (orientation: landscape) {
+
+    .container {
+        height: 100dvh;
+    }
+
+    .control-button {
+        margin-top: 0.5rem;
+        margin-bottom: 10px;
+    }
+
+    .game-grid {
+        /* width: 100%; */
+        gap: 0;
+    }
+
+    .personal-info {
+        width: 100%;
+        margin-left: 1rem;
+        margin-top: 0;
+        /* align-items: center; */
+        gap: 1rem;
+    }
+
+    .personal-info > * {
+        width: fit-content;
+        text-align: center;
+    }
+
+    .personal-info .timer {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .personal-info .score {
+        margin-top: 42px;
+    }
+
+    .game-emojibutton {
+        width: 65%;
+        /* height: 80%; */
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 0.6rem;
+        align-self: center;
+    }
+
+    .game-emojibutton .emojibutton {
+        width: 60px;
+        height: 60px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .game-emojibutton .emj {
+        font-size: 2rem;
+        height: 100%;
+        width: 100%;
+        /* margin-bottom: 5rem; */
     }
 }
 
