@@ -85,5 +85,26 @@
             }
         }, 1000)
     </script>
+
+    <script>
+        // Check and enforce orientation on page load
+        window.addEventListener('load', function () {
+            enforcePortraitMode();
+        });
+
+        // Check and enforce orientation when the device is rotated
+        window.addEventListener('orientationchange', function () {
+            enforcePortraitMode();
+        });
+
+        // Function to enforce portrait mode
+        function enforcePortraitMode() {
+            if (window.innerWidth > window.innerHeight) {
+                // If in landscape mode, force back to portrait
+                alert('Please use the website in portrait mode.');
+            }
+        }
+
+    </script>
 </body>
 </html>

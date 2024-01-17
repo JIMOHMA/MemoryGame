@@ -318,7 +318,7 @@ button {
 }
 
 /* Mobile devices in orientation mode */
-@media only screen and (max-device-width: 768px) and (orientation: landscape) {
+/* @media only screen and (max-device-width: 768px) and (orientation: landscape) {
 
     .container {
         height: 100dvh;
@@ -330,7 +330,6 @@ button {
     }
 
     .game-grid {
-        /* width: 100%; */
         gap: 0;
     }
 
@@ -338,7 +337,6 @@ button {
         width: 100%;
         margin-left: 1rem;
         margin-top: 0;
-        /* align-items: center; */
         gap: 1rem;
     }
 
@@ -358,7 +356,6 @@ button {
 
     .game-emojibutton {
         width: 65%;
-        /* height: 80%; */
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 0.6rem;
@@ -376,7 +373,12 @@ button {
         font-size: 2rem;
         height: 100%;
         width: 100%;
-        /* margin-bottom: 5rem; */
     }
-}
+} */
 
+/* Apply styles only when the device is in portrait mode */
+@media screen and (orientation: landscape) {
+    body {
+      display: none; /* Hide the content in landscape mode */
+    }
+}  
