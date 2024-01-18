@@ -218,15 +218,6 @@ button {
 /* End button looks */
 
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    .chatbox {
-        color: blue;
-    }
-
-}
-
-
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 768px) {
     
