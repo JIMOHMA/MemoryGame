@@ -312,8 +312,6 @@ button {
 @media only screen 
     and (min-device-width: 786px) 
     and (max-device-width: 940px)
-    and (min-device-height: 350px)
-    and (max-device-height: 440px)
     and (orientation: landscape) { 
 
     .container {
